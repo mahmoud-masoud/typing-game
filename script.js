@@ -34,6 +34,7 @@ const words = [
 
 let score = 0;
 let time = 10;
+let flag = false;
 
 let difficulty =
   localStorage.getItem('difficulty') !== null
@@ -68,14 +69,6 @@ const gameOver = () => {
 };
 
 const timeInterval = setInterval(timeDown, 1000);
-
-const timer = (timeDown) => {
-  if (time >= 0) {
-    setInterval(timeDown, 1000);
-  } else {
-    return;
-  }
-};
 
 function timeDown() {
   time--;

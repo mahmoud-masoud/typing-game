@@ -7,7 +7,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 100vh;
+  height: 100vh;
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -127,6 +127,5 @@ input {
 @media (max-width: 400px) {
   body {
     align-items: flex-start;
-    justify-content: center;
   }
 }
