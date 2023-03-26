@@ -38,7 +38,7 @@ let time = 10;
 let difficulty =
   localStorage.getItem('difficulty') !== null
     ? localStorage.getItem('difficulty')
-    : 'medium';
+    : 'easy';
 
 difficultySelect.value = difficulty;
 
@@ -61,15 +61,25 @@ const gameOver = () => {
   endgameEl.innerHTML = `
   <h1> Time ran out</h1>
   <p>Your final score is ${score}</p>
-  <button onclick="location.reload()">Reload<button/>
+  <button onclick="location.reload()">Reload</button>
+  
   `;
   endgameEl.style.display = 'flex';
 };
 
 const timeInterval = setInterval(timeDown, 1000);
 
+const timer = (timeDown) => {
+  if (time >= 0) {
+    setInterval(timeDown, 1000);
+  } else {
+    return;
+  }
+};
+
 function timeDown() {
-  timeEl.textContent = time-- + 's';
+  time--;
+  timeEl.textContent = time + 's';
   if (time === 0) {
     clearInterval(timeInterval);
     gameOver();
